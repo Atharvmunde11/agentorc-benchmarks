@@ -11,6 +11,7 @@ import { adapterLabel } from "./lib/adapters.ts";
 import {
   renderFeatureMarkdownTable,
   PRODUCTS,
+  FEATURE_LEGEND,
 } from "../comparison/features.ts";
 
 const SUITE_VERSION = "1.0.0";
@@ -154,6 +155,8 @@ export function renderDetailedMarkdown(report: BenchmarkSuiteReport): string {
   lines.push("");
   lines.push(renderFeatureMarkdownTable());
   lines.push("");
+  lines.push(`**Legend:** ${FEATURE_LEGEND}`);
+  lines.push("");
   lines.push("Notes:");
   for (const p of PRODUCTS) {
     for (const note of p.notes) {
@@ -162,7 +165,9 @@ export function renderDetailedMarkdown(report: BenchmarkSuiteReport): string {
   }
   lines.push("");
   lines.push(
-    "No competitor latency or throughput numbers are published here. Feature values are Yes / No / Partial / Unknown from public docs only.",
+    "No competitor latency or throughput numbers are published here. Marks mean: " +
+      FEATURE_LEGEND +
+      " (from public docs only).",
   );
   return lines.join("\n");
 }
@@ -250,11 +255,13 @@ Storage adapter today: **SQLite**. PostgreSQL is reserved for a future SDK adapt
 
 Feature comparison only — **no invented speed numbers**.
 
+**Legend:** ${FEATURE_LEGEND}
+
 ${renderFeatureMarkdownTable()}
 
-Values are **Yes / No / Partial / Unknown** based on public documentation. See [\`comparison/features.ts\`](comparison/features.ts) for notes.
+Based on public documentation only. See [\`comparison/features.ts\`](comparison/features.ts) for notes.
 
-Website: [AgentOrc.lucareo.com/benchmarks](https://AgentOrc.lucareo.com/benchmarks)
+Website: [AgentOrc.lucareo.com/benchmarks](https://AgentOrc.lucareo.com/benchmarks) · npm: [\`agentorc\`](https://www.npmjs.com/package/agentorc)
 
 ## How to reproduce
 

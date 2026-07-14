@@ -9,12 +9,22 @@
 
 export type FeatureValue = "Yes" | "No" | "Partial" | "Unknown";
 
-export interface ProductFeatures {
-  name: string;
-  homepage: string;
-  features: Record<string, FeatureValue>;
-  notes: string[];
+/** Instant-scan marks for tables (professional + readable at a glance). */
+export function featureMark(value: FeatureValue): string {
+  switch (value) {
+    case "Yes":
+      return "✅";
+    case "No":
+      return "❌";
+    case "Partial":
+      return "⚠️";
+    case "Unknown":
+      return "❓";
+  }
 }
+
+export const FEATURE_LEGEND =
+  "✅ Supported · ⚠️ Partial · ❌ No · ❓ Unknown";
 
 export const FEATURE_COLUMNS = [
   "SQLite-based",
@@ -32,6 +42,13 @@ export const FEATURE_COLUMNS = [
 ] as const;
 
 export type FeatureColumn = (typeof FEATURE_COLUMNS)[number];
+
+export interface ProductFeatures {
+  name: string;
+  homepage: string;
+  features: Record<string, FeatureValue>;
+  notes: string[];
+}
 
 /**
  * Sources consulted (public docs / repos only):
@@ -84,7 +101,7 @@ export const PRODUCTS: ProductFeatures[] = [
     },
     notes: [
       "Single-node deployments use SQLite for metadata; vector segments are separate.",
-      "Hybrid / multi-retriever fusion appears in newer query planning docs; treat as Partial vs Agent ORC’s agent-memory focus.",
+      "Hybrid / multi-retriever fusion appears in newer query planning docs; treat as Partial.",
     ],
   },
   {
@@ -160,7 +177,9 @@ export function renderFeatureMarkdownTable(): string {
   const header = `| Feature | ${PRODUCTS.map((p) => p.name).join(" | ")} |`;
   const sep = `| --- | ${PRODUCTS.map(() => "---").join(" | ")} |`;
   const rows = FEATURE_COLUMNS.map((col) => {
-    const cells = PRODUCTS.map((p) => p.features[col] ?? "Unknown");
+    const cells = PRODUCTS.map((p) =>
+      featureMark((p.features[col] ?? "Unknown") as FeatureValue),
+    );
     return `| ${col} | ${cells.join(" | ")} |`;
   });
   return [header, sep, ...rows].join("\n");

@@ -134,22 +134,24 @@ Storage adapter today: **SQLite**. PostgreSQL is reserved for a future SDK adapt
 
 Feature comparison only — **no invented speed numbers**.
 
+**Legend:** ✅ Supported · ⚠️ Partial · ❌ No · ❓ Unknown
+
 | Feature | Agent ORC | Chroma | Qdrant | LanceDB | Mem0 |
 | --- | --- | --- | --- | --- | --- |
-| SQLite-based | Yes | Partial | No | No | Partial |
-| Local-first | Yes | Yes | Partial | Yes | Partial |
-| Framework Agnostic | Yes | Yes | Yes | Yes | Yes |
-| Model Agnostic | Yes | Yes | Yes | Yes | Yes |
-| Memory Compression | Yes | Unknown | No | Unknown | Yes |
-| Semantic Search | Yes | Yes | Yes | Yes | Yes |
-| Hybrid Search | No | Partial | Yes | Yes | Partial |
-| Open Source | Yes | Yes | Yes | Yes | Yes |
-| Runs Offline | Yes | Yes | Yes | Yes | Partial |
-| Storage Adapter | Partial | Yes | Partial | Partial | Yes |
-| Provider Adapter | Yes | Yes | Yes | Yes | Yes |
-| Public Benchmark Repo | Yes | Unknown | Unknown | Unknown | Unknown |
+| SQLite-based | ✅ | ⚠️ | ❌ | ❌ | ⚠️ |
+| Local-first | ✅ | ✅ | ⚠️ | ✅ | ⚠️ |
+| Framework Agnostic | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Model Agnostic | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Memory Compression | ✅ | ❓ | ❌ | ❓ | ✅ |
+| Semantic Search | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Hybrid Search | ❌ | ⚠️ | ✅ | ✅ | ⚠️ |
+| Open Source | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Runs Offline | ✅ | ✅ | ✅ | ✅ | ⚠️ |
+| Storage Adapter | ⚠️ | ✅ | ⚠️ | ⚠️ | ✅ |
+| Provider Adapter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Public Benchmark Repo | ✅ | ❓ | ❓ | ❓ | ❓ |
 
-Values are **Yes / No / Partial / Unknown** based on public documentation. See [`comparison/features.ts`](comparison/features.ts) for notes.
+Based on public documentation only. See [`comparison/features.ts`](comparison/features.ts) for notes.
 
 Website: [AgentOrc.lucareo.com/benchmarks](https://AgentOrc.lucareo.com/benchmarks) · npm: [`agentorc`](https://www.npmjs.com/package/agentorc)
 
