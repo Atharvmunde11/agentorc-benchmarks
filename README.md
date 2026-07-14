@@ -1,6 +1,10 @@
 # Agent ORC Benchmarks
 
-Public, reproducible benchmarks for [Agent ORC](https://AgentOrc.lucareo.com) — local-first semantic memory for AI agents.
+Public, reproducible benchmarks for **[agentOrc](https://www.npmjs.com/package/agentorc)** — local-first semantic memory for AI agents.
+
+- **Website:** [AgentOrc.lucareo.com/benchmarks](https://AgentOrc.lucareo.com/benchmarks)
+- **SDK:** [github.com/Atharvmunde11/agentOrc](https://github.com/Atharvmunde11/agentOrc) · [npm `agentorc`](https://www.npmjs.com/package/agentorc)
+- **Docs:** [AgentOrc.lucareo.com](https://AgentOrc.lucareo.com)
 
 These benchmarks measure the **complete Agent ORC SDK**, not raw SQLite.
 
@@ -147,7 +151,7 @@ Feature comparison only — **no invented speed numbers**.
 
 Values are **Yes / No / Partial / Unknown** based on public documentation. See [`comparison/features.ts`](comparison/features.ts) for notes.
 
-Website: [AgentOrc.lucareo.com/benchmarks](https://AgentOrc.lucareo.com/benchmarks)
+Website: [AgentOrc.lucareo.com/benchmarks](https://AgentOrc.lucareo.com/benchmarks) · npm: [`agentorc`](https://www.npmjs.com/package/agentorc)
 
 ## How to reproduce
 

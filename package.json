@@ -28,7 +28,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Atharvmunde11/agentorc-benchmarks.git"
+    "url": "git+https://github.com/Atharvmunde11/agentorc-benchmarks.git"
   },
-  "homepage": "https://github.com/Atharvmunde11/agentorc-benchmarks"
+  "bugs": {
+    "url": "https://github.com/Atharvmunde11/agentorc-benchmarks/issues"
+  },
+  "homepage": "https://AgentOrc.lucareo.com/benchmarks"
 }
