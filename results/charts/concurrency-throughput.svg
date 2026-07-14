@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="420" viewBox="0 0 840 420">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <text x="72" y="32" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#111827">Concurrency throughput (ops/sec)</text>
+  <line x1="72" y1="56" x2="72" y2="356" stroke="#9ca3af"/>
+  <line x1="72" y1="356" x2="812" y2="356" stroke="#9ca3af"/>
+  
+      <rect x="84" y="88.42689110195079" width="230.66666666666666" height="267.5731088980492" fill="#1f2937" rx="3"/>
+      <text x="199.33333333333331" y="392" text-anchor="middle" font-size="12" fill="#111827">10 writers</text>
+      <text x="199.33333333333331" y="80.42689110195079" text-anchor="middle" font-size="11" fill="#111827">2.6k</text>
+      <rect x="326.66666666666663" y="56" width="230.66666666666666" height="300" fill="#1f2937" rx="3"/>
+      <text x="441.99999999999994" y="392" text-anchor="middle" font-size="12" fill="#111827">50 writers</text>
+      <text x="441.99999999999994" y="48" text-anchor="middle" font-size="11" fill="#111827">3.0k</text>
+      <rect x="569.3333333333333" y="88.65718221542937" width="230.66666666666666" height="267.3428177845706" fill="#1f2937" rx="3"/>
+      <text x="684.6666666666666" y="392" text-anchor="middle" font-size="12" fill="#111827">100 writers</text>
+      <text x="684.6666666666666" y="80.65718221542937" text-anchor="middle" font-size="11" fill="#111827">2.6k</text>
+</svg>
