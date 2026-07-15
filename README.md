@@ -1,17 +1,33 @@
-# Agent ORC Benchmarks
+﻿# Agent ORC Benchmarks
 
-Public, reproducible benchmarks for **[agentOrc](https://www.npmjs.com/package/agentorc)** — local-first semantic memory for AI agents.
+Public, reproducible benchmarks for **[agentorc](https://www.npmjs.com/package/agentorc)** — local-first semantic memory for AI agents.
 
 - **Website:** [AgentOrc.lucareo.com/benchmarks](https://AgentOrc.lucareo.com/benchmarks)
 - **SDK:** [github.com/Atharvmunde11/agentOrc](https://github.com/Atharvmunde11/agentOrc) · [npm `agentorc`](https://www.npmjs.com/package/agentorc)
 - **Docs:** [AgentOrc.lucareo.com](https://AgentOrc.lucareo.com)
 
-These benchmarks measure the **complete Agent ORC SDK**, not raw SQLite.
+These benchmarks measure the **complete Agent ORC SDK** (storage + recall path), not raw SQLite or PostgreSQL alone.
+
+**Published run:** suite **v2.0.0** · **agentorc@0.2.1** · dual-backend **SQLite + PostgreSQL** · mode `mock` · scale `quick` · generated **2026-07-15**.
 
 ```bash
 npm install
 npm run benchmark
 ```
+
+## Headline numbers (2026-07-15)
+
+| Metric | Result |
+| --- | --- |
+| SQLite cold start | 7.91 ms |
+| SQLite search @ 1k | 2.02 ms |
+| SQLite insert @ 1k | 1.72k ops/sec |
+| Postgres 16 writers | 1.12k ops/sec |
+| Postgres search @ 1k | 4.70 ms |
+
+> **Storage suite = mock embeddings.** Numbers above come from the dual-backend mock suite (local OpenAI-compatible mock server). A separate **LIVE** spot suite measures real-provider network latency and is not mixed into these headline figures.
+
+Full charts and commentary: [AgentOrc.lucareo.com/benchmarks](https://AgentOrc.lucareo.com/benchmarks)
 
 ## Environment
 
@@ -20,52 +36,42 @@ npm run benchmark
 | Node | v24.13.1 |
 | Platform | win32/arm64 |
 | CPUs | 8 |
-| RAM | 15.61 GB |
+| Host RAM | 15.61 GB |
+| SDK | agentorc@0.2.1 |
+| Suite | v2.0.0 |
 | Mode | mock |
-| Adapter | SQLite |
-| Generated | 2026-07-14T11:25:28.934Z |
+| Scale | quick |
+| Backends | sqlite, postgres |
+| Generated | 2026-07-15T13:59:16.872Z |
 
 ## Summary
 
-| Benchmark | Dataset | Result |
-| --- | --- | --- |
-| Startup | Cold | 8.63 ms |
-| Startup | Warm | 3.35 ms |
-| Active Memory Reduction | 50 | 98.04% |
-| Active Memory Reduction | 200 | 99.50% |
-| Active Memory Reduction | 500 | 99.50% |
-| Active Memory Reduction | 1000 | 99.50% |
-| Concurrency | 10 writers | 2.64k ops/sec |
-| Concurrency | 50 writers | 2.96k ops/sec |
-| Concurrency | 100 writers | 2.63k ops/sec |
-| Memory Usage | baseline (pre-init) | heap 14.02 MB / rss 81.21 MB |
-| Memory Usage | after init | heap 14.09 MB / rss 81.27 MB |
-| Memory Usage | after 100 inserts | heap 18.55 MB / rss 81.31 MB |
-| Memory Usage | after 1000 inserts | heap 19.41 MB / rss 81.95 MB |
-| Memory Usage | after 10000 inserts | heap 20.12 MB / rss 103.14 MB |
-| Memory Usage | after recall | heap 31.19 MB / rss 136.27 MB |
-| Memory Usage | after close | heap 31.19 MB / rss 136.24 MB |
-| Database Size | 100 | 316.00 KB |
-| Database Size | 1000 | 2.64 MB |
-| Database Size | 10000 | 25.96 MB |
-| Database Size | 100000 | 260.79 MB |
-| Search | 100 | 722.7 µs |
-| Search | 1000 | 11.65 ms |
-| Search | 10000 | 100.84 ms |
-| Search | 100000 | 1.12 s |
-| Retrieval top-5 | 1000 | 8.33 ms |
-| Retrieval top-10 | 1000 | 11.39 ms |
-| Retrieval top-20 | 1000 | 9.61 ms |
-| Retrieval top-5 | 10000 | 107.26 ms |
-| Retrieval top-10 | 10000 | 105.44 ms |
-| Retrieval top-20 | 10000 | 127.77 ms |
-| Retrieval top-5 | 100000 | 1.43 s |
-| Retrieval top-10 | 100000 | 1.27 s |
-| Retrieval top-20 | 100000 | 968.21 ms |
-| Insert | 100 | 2.03k ops/sec |
-| Insert | 1000 | 2.54k ops/sec |
-| Insert | 10000 | 2.39k ops/sec |
-| Insert | 100000 | 2.02k ops/sec |
+| Benchmark | Dataset | Backend | Result |
+| --- | --- | --- | --- |
+| Startup | Cold | sqlite | 7.91 ms |
+| Startup | Warm | sqlite | 4.33 ms |
+| Compression | 50 | sqlite | 98.00% |
+| Compression | 200 | sqlite | 99.50% |
+| Concurrency | 2 writers | sqlite | 1.70k ops/sec |
+| Concurrency | 4 writers | sqlite | 1.60k ops/sec |
+| Concurrency | 8 writers | sqlite | 1.58k ops/sec |
+| Concurrency | 16 writers | sqlite | 907.05 ops/sec |
+| Search | 100 | sqlite | 893.1 µs |
+| Search | 1000 | sqlite | 2.02 ms |
+| Insert | 100 | sqlite | 1.85k ops/sec |
+| Insert | 1000 | sqlite | 1.72k ops/sec |
+| Startup | Cold | postgres | 52.95 ms |
+| Startup | Warm | postgres | 63.64 ms |
+| Concurrency | 2 writers | postgres | 295.88 ops/sec |
+| Concurrency | 4 writers | postgres | 438.97 ops/sec |
+| Concurrency | 8 writers | postgres | 554.12 ops/sec |
+| Concurrency | 16 writers | postgres | 1.12k ops/sec |
+| Search | 100 | postgres | 5.97 ms |
+| Search | 1000 | postgres | 4.70 ms |
+| Insert | 100 | postgres | 258.16 ops/sec |
+| Insert | 1000 | postgres | 288.52 ops/sec |
+
+See [`results/SUMMARY.md`](results/SUMMARY.md) for the full summary table, and [`results/benchmark.md`](results/benchmark.md) / [`results/Benchmarks.md`](results/Benchmarks.md) for methodology detail.
 
 ## Performance Charts
 
@@ -101,7 +107,6 @@ npm run benchmark
 
 ![compression-ratio](results/charts/compression-ratio.svg)
 
-
 ## Methodology
 
 Every suite answers three questions in plain English:
@@ -124,32 +129,32 @@ Compression shrinks the **active working set**.
 
 | Mode | Command | Use when |
 | --- | --- | --- |
-| Mock (default) | `npm run benchmark` | Reproduce SDK numbers without API cost |
+| Mock (default) | `npm run benchmark` | Reproduce SDK storage numbers without API cost |
 | Live | `npm run benchmark:live` | Measure with your own embedding/LLM keys |
 | Quick | `npm run benchmark:quick` | Smaller datasets for CI / smoke tests |
 
-Storage adapter today: **SQLite**. PostgreSQL is reserved for a future SDK adapter.
+**Storage adapter coverage:** SQLite **and** PostgreSQL (dual-backend suite v2.0.0).
 
 ## How to compare tools
 
 Feature comparison only — **no invented speed numbers**.
 
-**Legend:** ✅ Supported · ⚠️ Partial · ❌ No · ❓ Unknown
+**Legend:** ✓ Supported · ◐ Partial · ✗ No · — Unknown
 
 | Feature | Agent ORC | Chroma | Qdrant | LanceDB | Mem0 |
 | --- | --- | --- | --- | --- | --- |
-| SQLite-based | ✅ | ⚠️ | ❌ | ❌ | ⚠️ |
-| Local-first | ✅ | ✅ | ⚠️ | ✅ | ⚠️ |
-| Framework Agnostic | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Model Agnostic | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Memory Compression | ✅ | ❓ | ❌ | ❓ | ✅ |
-| Semantic Search | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Hybrid Search | ❌ | ⚠️ | ✅ | ✅ | ⚠️ |
-| Open Source | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Runs Offline | ✅ | ✅ | ✅ | ✅ | ⚠️ |
-| Storage Adapter | ⚠️ | ✅ | ⚠️ | ⚠️ | ✅ |
-| Provider Adapter | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Public Benchmark Repo | ✅ | ❓ | ❓ | ❓ | ❓ |
+| SQLite-based | ✓ | ◐ | ✗ | ✗ | ◐ |
+| Local-first | ✓ | ✓ | ◐ | ✓ | ◐ |
+| Framework Agnostic | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Model Agnostic | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Memory Compression | ✓ | — | ✗ | — | ✓ |
+| Semantic Search | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Hybrid Search | ✓ | ◐ | ✓ | ✓ | ◐ |
+| Open Source | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Runs Offline | ✓ | ✓ | ✓ | ✓ | ◐ |
+| Storage Adapter | ✓ | ✓ | ◐ | ◐ | ✓ |
+| Provider Adapter | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Public Benchmark Repo | ✓ | — | — | — | — |
 
 Based on public documentation only. See [`comparison/features.ts`](comparison/features.ts) for notes.
 

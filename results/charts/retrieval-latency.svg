@@ -5,13 +5,10 @@
   <line x1="72" y1="56" x2="72" y2="356" stroke="#9ca3af"/>
   <line x1="72" y1="356" x2="812" y2="356" stroke="#9ca3af"/>
   
-      <rect x="84" y="354.24859435733055" width="230.66666666666666" height="1.7514056426694697" fill="#1f2937" rx="3"/>
-      <text x="199.33333333333331" y="392" text-anchor="middle" font-size="12" fill="#111827">1000</text>
-      <text x="199.33333333333331" y="346.24859435733055" text-anchor="middle" font-size="11" fill="#111827">8.33</text>
-      <rect x="326.66666666666663" y="333.45153194883824" width="230.66666666666666" height="22.548468051161734" fill="#1f2937" rx="3"/>
-      <text x="441.99999999999994" y="392" text-anchor="middle" font-size="12" fill="#111827">10000</text>
-      <text x="441.99999999999994" y="325.45153194883824" text-anchor="middle" font-size="11" fill="#111827">107</text>
-      <rect x="569.3333333333333" y="56" width="230.66666666666666" height="300" fill="#1f2937" rx="3"/>
-      <text x="684.6666666666666" y="392" text-anchor="middle" font-size="12" fill="#111827">100000</text>
-      <text x="684.6666666666666" y="48" text-anchor="middle" font-size="11" fill="#111827">1.43s</text>
+      <rect x="84" y="210.87819418878934" width="352" height="145.12180581121066" fill="#1f2937" rx="3"/>
+      <text x="260" y="392" text-anchor="middle" font-size="12" fill="#111827">sqlite: 1000</text>
+      <text x="260" y="202.87819418878934" text-anchor="middle" font-size="11" fill="#111827">2.16</text>
+      <rect x="448" y="56" width="352" height="300" fill="#1f2937" rx="3"/>
+      <text x="624" y="392" text-anchor="middle" font-size="12" fill="#111827">pg: 1000</text>
+      <text x="624" y="48" text-anchor="middle" font-size="11" fill="#111827">4.47</text>
 </svg>

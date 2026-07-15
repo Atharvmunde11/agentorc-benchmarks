@@ -5,16 +5,16 @@
   <line x1="72" y1="56" x2="72" y2="356" stroke="#9ca3af"/>
   <line x1="72" y1="356" x2="812" y2="356" stroke="#9ca3af"/>
   
-      <rect x="84" y="355.64500763907614" width="170" height="0.35499236092387887" fill="#1f2937" rx="3"/>
-      <text x="169" y="392" text-anchor="middle" font-size="12" fill="#111827">100</text>
-      <text x="169" y="347.64500763907614" text-anchor="middle" font-size="11" fill="#111827">324K</text>
-      <rect x="266" y="352.96683742248587" width="170" height="3.0331625775141546" fill="#1f2937" rx="3"/>
-      <text x="351" y="392" text-anchor="middle" font-size="12" fill="#111827">1000</text>
-      <text x="351" y="344.96683742248587" text-anchor="middle" font-size="11" fill="#111827">2.8M</text>
-      <rect x="448" y="326.1357059405051" width="170" height="29.864294059494924" fill="#1f2937" rx="3"/>
-      <text x="533" y="392" text-anchor="middle" font-size="12" fill="#111827">10000</text>
-      <text x="533" y="318.1357059405051" text-anchor="middle" font-size="11" fill="#111827">27.2M</text>
+      <rect x="84" y="353.0635457145528" width="170" height="2.9364542854472067" fill="#1f2937" rx="3"/>
+      <text x="169" y="392" text-anchor="middle" font-size="12" fill="#111827">sqlite: 100</text>
+      <text x="169" y="345.0635457145528" text-anchor="middle" font-size="11" fill="#111827">385K</text>
+      <rect x="266" y="332.19597696265134" width="170" height="23.80402303734863" fill="#1f2937" rx="3"/>
+      <text x="351" y="392" text-anchor="middle" font-size="12" fill="#111827">sqlite: 1000</text>
+      <text x="351" y="324.19597696265134" text-anchor="middle" font-size="11" fill="#111827">3.1M</text>
+      <rect x="448" y="85.42702060522629" width="170" height="270.5729793947737" fill="#1f2937" rx="3"/>
+      <text x="533" y="392" text-anchor="middle" font-size="12" fill="#111827">pg: 100</text>
+      <text x="533" y="77.42702060522629" text-anchor="middle" font-size="11" fill="#111827">35.5M</text>
       <rect x="630" y="56" width="170" height="300" fill="#1f2937" rx="3"/>
-      <text x="715" y="392" text-anchor="middle" font-size="12" fill="#111827">100000</text>
-      <text x="715" y="48" text-anchor="middle" font-size="11" fill="#111827">273.5M</text>
+      <text x="715" y="392" text-anchor="middle" font-size="12" fill="#111827">pg: 1000</text>
+      <text x="715" y="48" text-anchor="middle" font-size="11" fill="#111827">39.3M</text>
 </svg>

@@ -5,13 +5,28 @@
   <line x1="72" y1="56" x2="72" y2="356" stroke="#9ca3af"/>
   <line x1="72" y1="356" x2="812" y2="356" stroke="#9ca3af"/>
   
-      <rect x="84" y="88.42689110195079" width="230.66666666666666" height="267.5731088980492" fill="#1f2937" rx="3"/>
-      <text x="199.33333333333331" y="392" text-anchor="middle" font-size="12" fill="#111827">10 writers</text>
-      <text x="199.33333333333331" y="80.42689110195079" text-anchor="middle" font-size="11" fill="#111827">2.6k</text>
-      <rect x="326.66666666666663" y="56" width="230.66666666666666" height="300" fill="#1f2937" rx="3"/>
-      <text x="441.99999999999994" y="392" text-anchor="middle" font-size="12" fill="#111827">50 writers</text>
-      <text x="441.99999999999994" y="48" text-anchor="middle" font-size="11" fill="#111827">3.0k</text>
-      <rect x="569.3333333333333" y="88.65718221542937" width="230.66666666666666" height="267.3428177845706" fill="#1f2937" rx="3"/>
-      <text x="684.6666666666666" y="392" text-anchor="middle" font-size="12" fill="#111827">100 writers</text>
-      <text x="684.6666666666666" y="80.65718221542937" text-anchor="middle" font-size="11" fill="#111827">2.6k</text>
+      <rect x="84" y="56" width="79" height="300" fill="#1f2937" rx="3"/>
+      <text x="123.5" y="392" text-anchor="middle" font-size="12" fill="#111827">sqlite: 2 writers</text>
+      <text x="123.5" y="48" text-anchor="middle" font-size="11" fill="#111827">1.7k</text>
+      <rect x="175" y="73.24544666088264" width="79" height="282.75455333911736" fill="#1f2937" rx="3"/>
+      <text x="214.5" y="392" text-anchor="middle" font-size="12" fill="#111827">sqlite: 4 writers</text>
+      <text x="214.5" y="65.24544666088264" text-anchor="middle" font-size="11" fill="#111827">1.6k</text>
+      <rect x="266" y="77.4520063935376" width="79" height="278.5479936064624" fill="#1f2937" rx="3"/>
+      <text x="305.5" y="392" text-anchor="middle" font-size="12" fill="#111827">sqlite: 8 writers</text>
+      <text x="305.5" y="69.4520063935376" text-anchor="middle" font-size="11" fill="#111827">1.6k</text>
+      <rect x="357" y="195.82288409724848" width="79" height="160.17711590275152" fill="#1f2937" rx="3"/>
+      <text x="396.5" y="392" text-anchor="middle" font-size="12" fill="#111827">sqlite: 16 writers</text>
+      <text x="396.5" y="187.82288409724848" text-anchor="middle" font-size="11" fill="#111827">907</text>
+      <rect x="448" y="303.74972384409" width="79" height="52.25027615590999" fill="#1f2937" rx="3"/>
+      <text x="487.5" y="392" text-anchor="middle" font-size="12" fill="#111827">pg: 2 writers</text>
+      <text x="487.5" y="295.74972384409" text-anchor="middle" font-size="11" fill="#111827">296</text>
+      <rect x="539" y="278.48106933561627" width="79" height="77.51893066438373" fill="#1f2937" rx="3"/>
+      <text x="578.5" y="392" text-anchor="middle" font-size="12" fill="#111827">pg: 4 writers</text>
+      <text x="578.5" y="270.48106933561627" text-anchor="middle" font-size="11" fill="#111827">439</text>
+      <rect x="630" y="258.14625807461545" width="79" height="97.85374192538457" fill="#1f2937" rx="3"/>
+      <text x="669.5" y="392" text-anchor="middle" font-size="12" fill="#111827">pg: 8 writers</text>
+      <text x="669.5" y="250.14625807461545" text-anchor="middle" font-size="11" fill="#111827">554</text>
+      <rect x="721" y="157.88263033477713" width="79" height="198.11736966522287" fill="#1f2937" rx="3"/>
+      <text x="760.5" y="392" text-anchor="middle" font-size="12" fill="#111827">pg: 16 writers</text>
+      <text x="760.5" y="149.88263033477713" text-anchor="middle" font-size="11" fill="#111827">1.1k</text>
 </svg>

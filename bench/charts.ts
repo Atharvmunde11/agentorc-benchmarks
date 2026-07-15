@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Clean SVG + PNG chart generation from results/benchmark.json
  */
 
@@ -32,21 +32,34 @@ function escapeXml(s: string): string {
 function metricValue(
   report: BenchmarkSuiteReport,
   category: string,
-  metricName: string,
+  metricName: string | string[],
   filter?: (row: BenchmarkSuiteReport["sections"][0]["rows"][0]) => boolean,
 ): Series[] {
-  const section = report.sections.find((s) => s.id === category || s.title.toLowerCase().includes(category));
-  if (!section) return [];
-  return section.rows
-    .filter((r) => (filter ? filter(r) : true))
-    .map((r) => {
-      const m = r.metrics.find((x) => x.name === metricName);
-      return {
-        label: r.dataset,
-        value: m?.value ?? Number.NaN,
-      };
-    })
-    .filter((s) => Number.isFinite(s.value));
+  const names = Array.isArray(metricName) ? metricName : [metricName];
+  const sections = report.sections.filter(
+    (s) =>
+      s.id === category ||
+      s.id.endsWith(`-${category}`) ||
+      s.title.toLowerCase().includes(category),
+  );
+  const multi = sections.length > 1;
+  return sections.flatMap((section) => {
+    const backend = section.id.includes("postgres")
+      ? "pg"
+      : section.id.includes("sqlite")
+        ? "sqlite"
+        : "";
+    return section.rows
+      .filter((r) => (filter ? filter(r) : true))
+      .map((r) => {
+        const m = r.metrics.find((x) => names.includes(x.name));
+        return {
+          label: multi && backend ? `${backend}: ${r.dataset}` : r.dataset,
+          value: m?.value ?? Number.NaN,
+        };
+      })
+      .filter((s) => Number.isFinite(s.value));
+  });
 }
 
 function barChart(title: string, series: Series[], unit: string): string {
@@ -141,7 +154,7 @@ export async function generateCharts(
     {
       name: "database-size",
       title: "Database size (bytes)",
-      series: metricValue(report, "filesize", "sqliteBytes"),
+      series: metricValue(report, "filesize", ["sqliteBytes", "bytes"]),
       unit: "bytes",
     },
     {
@@ -165,9 +178,11 @@ export async function generateCharts(
     {
       name: "compression-ratio",
       title: "Active memory reduction",
-      series: metricValue(report, "compression", "activeMemoryReduction").length
-        ? metricValue(report, "compression", "activeMemoryReduction")
-        : metricValue(report, "compression", "activeSetReduction"),
+      series: metricValue(report, "compression", [
+        "activeMemoryReduction",
+        "activeSetReduction",
+        "reduction",
+      ]),
       unit: "pct",
     },
   ];

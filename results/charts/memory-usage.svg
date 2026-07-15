@@ -5,25 +5,40 @@
   <line x1="72" y1="56" x2="72" y2="356" stroke="#9ca3af"/>
   <line x1="72" y1="356" x2="812" y2="356" stroke="#9ca3af"/>
   
-      <rect x="84" y="221.15953426181554" width="92" height="134.84046573818446" fill="#1f2937" rx="3"/>
-      <text x="130" y="392" text-anchor="middle" font-size="12" fill="#111827">baseline (pre-init)</text>
-      <text x="130" y="213.15953426181554" text-anchor="middle" font-size="11" fill="#111827">14.7M</text>
-      <rect x="188" y="220.51476310200533" width="92" height="135.48523689799467" fill="#1f2937" rx="3"/>
-      <text x="234" y="392" text-anchor="middle" font-size="12" fill="#111827">after init</text>
-      <text x="234" y="212.51476310200533" text-anchor="middle" font-size="11" fill="#111827">14.8M</text>
-      <rect x="292" y="177.55675615379985" width="92" height="178.44324384620015" fill="#1f2937" rx="3"/>
-      <text x="338" y="392" text-anchor="middle" font-size="12" fill="#111827">after 100 inserts</text>
-      <text x="338" y="169.55675615379985" text-anchor="middle" font-size="11" fill="#111827">19.5M</text>
-      <rect x="396" y="169.26903234423412" width="92" height="186.73096765576588" fill="#1f2937" rx="3"/>
-      <text x="442" y="392" text-anchor="middle" font-size="12" fill="#111827">after 1000 inserts</text>
-      <text x="442" y="161.26903234423412" text-anchor="middle" font-size="11" fill="#111827">20.4M</text>
-      <rect x="500" y="162.45600423878696" width="92" height="193.54399576121304" fill="#1f2937" rx="3"/>
-      <text x="546" y="392" text-anchor="middle" font-size="12" fill="#111827">after 10000 inserts</text>
-      <text x="546" y="154.45600423878696" text-anchor="middle" font-size="11" fill="#111827">21.1M</text>
-      <rect x="604" y="56.030822204315996" width="92" height="299.969177795684" fill="#1f2937" rx="3"/>
-      <text x="650" y="392" text-anchor="middle" font-size="12" fill="#111827">after recall</text>
-      <text x="650" y="48.030822204315996" text-anchor="middle" font-size="11" fill="#111827">32.7M</text>
-      <rect x="708" y="56" width="92" height="300" fill="#1f2937" rx="3"/>
-      <text x="754" y="392" text-anchor="middle" font-size="12" fill="#111827">after close</text>
-      <text x="754" y="48" text-anchor="middle" font-size="11" fill="#111827">32.7M</text>
+      <rect x="84" y="144.23717050474949" width="48.666666666666664" height="211.76282949525051" fill="#1f2937" rx="3"/>
+      <text x="108.33333333333333" y="392" text-anchor="middle" font-size="12" fill="#111827">sqlite: baseline (pre-init)</text>
+      <text x="108.33333333333333" y="136.23717050474949" text-anchor="middle" font-size="11" fill="#111827">29.7M</text>
+      <rect x="144.66666666666666" y="143.79110303013732" width="48.666666666666664" height="212.20889696986268" fill="#1f2937" rx="3"/>
+      <text x="169" y="392" text-anchor="middle" font-size="12" fill="#111827">sqlite: after init</text>
+      <text x="169" y="135.79110303013732" text-anchor="middle" font-size="11" fill="#111827">29.8M</text>
+      <rect x="205.33333333333331" y="227.85929991729154" width="48.666666666666664" height="128.14070008270846" fill="#1f2937" rx="3"/>
+      <text x="229.66666666666666" y="392" text-anchor="middle" font-size="12" fill="#111827">sqlite: after 100 inserts</text>
+      <text x="229.66666666666666" y="219.85929991729154" text-anchor="middle" font-size="11" fill="#111827">18.0M</text>
+      <rect x="266" y="155.7848554652522" width="48.666666666666664" height="200.2151445347478" fill="#1f2937" rx="3"/>
+      <text x="290.3333333333333" y="392" text-anchor="middle" font-size="12" fill="#111827">sqlite: after 1000 inserts</text>
+      <text x="290.3333333333333" y="147.7848554652522" text-anchor="middle" font-size="11" fill="#111827">28.1M</text>
+      <rect x="326.66666666666663" y="230.15554203663325" width="48.666666666666664" height="125.84445796336675" fill="#1f2937" rx="3"/>
+      <text x="350.99999999999994" y="392" text-anchor="middle" font-size="12" fill="#111827">sqlite: after recall</text>
+      <text x="350.99999999999994" y="222.15554203663325" text-anchor="middle" font-size="11" fill="#111827">17.7M</text>
+      <rect x="387.3333333333333" y="230.04913748516145" width="48.666666666666664" height="125.95086251483853" fill="#1f2937" rx="3"/>
+      <text x="411.66666666666663" y="392" text-anchor="middle" font-size="12" fill="#111827">sqlite: after close</text>
+      <text x="411.66666666666663" y="222.04913748516145" text-anchor="middle" font-size="11" fill="#111827">17.7M</text>
+      <rect x="448" y="121.03363021798123" width="48.666666666666664" height="234.96636978201877" fill="#1f2937" rx="3"/>
+      <text x="472.3333333333333" y="392" text-anchor="middle" font-size="12" fill="#111827">pg: baseline (pre-init)</text>
+      <text x="472.3333333333333" y="113.03363021798123" text-anchor="middle" font-size="11" fill="#111827">33.0M</text>
+      <rect x="508.66666666666663" y="118.9252479545035" width="48.666666666666664" height="237.0747520454965" fill="#1f2937" rx="3"/>
+      <text x="533" y="392" text-anchor="middle" font-size="12" fill="#111827">pg: after init</text>
+      <text x="533" y="110.9252479545035" text-anchor="middle" font-size="11" fill="#111827">33.3M</text>
+      <rect x="569.3333333333333" y="56" width="48.666666666666664" height="300" fill="#1f2937" rx="3"/>
+      <text x="593.6666666666666" y="392" text-anchor="middle" font-size="12" fill="#111827">pg: after 100 inserts</text>
+      <text x="593.6666666666666" y="48" text-anchor="middle" font-size="11" fill="#111827">42.1M</text>
+      <rect x="630" y="63.30961673855239" width="48.666666666666664" height="292.6903832614476" fill="#1f2937" rx="3"/>
+      <text x="654.3333333333334" y="392" text-anchor="middle" font-size="12" fill="#111827">pg: after 1000 inserts</text>
+      <text x="654.3333333333334" y="55.30961673855239" text-anchor="middle" font-size="11" fill="#111827">41.1M</text>
+      <rect x="690.6666666666666" y="62.05042026380124" width="48.666666666666664" height="293.94957973619876" fill="#1f2937" rx="3"/>
+      <text x="715" y="392" text-anchor="middle" font-size="12" fill="#111827">pg: after recall</text>
+      <text x="715" y="54.05042026380124" text-anchor="middle" font-size="11" fill="#111827">41.3M</text>
+      <rect x="751.3333333333333" y="62.01151538764748" width="48.666666666666664" height="293.9884846123525" fill="#1f2937" rx="3"/>
+      <text x="775.6666666666666" y="392" text-anchor="middle" font-size="12" fill="#111827">pg: after close</text>
+      <text x="775.6666666666666" y="54.01151538764748" text-anchor="middle" font-size="11" fill="#111827">41.3M</text>
 </svg>

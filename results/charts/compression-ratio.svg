@@ -5,16 +5,16 @@
   <line x1="72" y1="56" x2="72" y2="356" stroke="#9ca3af"/>
   <line x1="72" y1="356" x2="812" y2="356" stroke="#9ca3af"/>
   
-      <rect x="84" y="61.882352941176464" width="170" height="294.11764705882354" fill="#1f2937" rx="3"/>
-      <text x="169" y="392" text-anchor="middle" font-size="12" fill="#111827">50</text>
-      <text x="169" y="53.882352941176464" text-anchor="middle" font-size="11" fill="#111827">98%</text>
-      <rect x="266" y="57.49253731343282" width="170" height="298.5074626865672" fill="#1f2937" rx="3"/>
-      <text x="351" y="392" text-anchor="middle" font-size="12" fill="#111827">200</text>
-      <text x="351" y="49.49253731343282" text-anchor="middle" font-size="11" fill="#111827">100%</text>
-      <rect x="448" y="57.49253731343282" width="170" height="298.5074626865672" fill="#1f2937" rx="3"/>
-      <text x="533" y="392" text-anchor="middle" font-size="12" fill="#111827">500</text>
-      <text x="533" y="49.49253731343282" text-anchor="middle" font-size="11" fill="#111827">100%</text>
-      <rect x="630" y="57.49253731343282" width="170" height="298.5074626865672" fill="#1f2937" rx="3"/>
-      <text x="715" y="392" text-anchor="middle" font-size="12" fill="#111827">1000</text>
-      <text x="715" y="49.49253731343282" text-anchor="middle" font-size="11" fill="#111827">100%</text>
+      <rect x="84" y="62" width="170" height="294" fill="#1f2937" rx="3"/>
+      <text x="169" y="392" text-anchor="middle" font-size="12" fill="#111827">sqlite: 50</text>
+      <text x="169" y="54" text-anchor="middle" font-size="11" fill="#111827">98%</text>
+      <rect x="266" y="57.5" width="170" height="298.5" fill="#1f2937" rx="3"/>
+      <text x="351" y="392" text-anchor="middle" font-size="12" fill="#111827">sqlite: 200</text>
+      <text x="351" y="49.5" text-anchor="middle" font-size="11" fill="#111827">100%</text>
+      <rect x="448" y="62" width="170" height="294" fill="#1f2937" rx="3"/>
+      <text x="533" y="392" text-anchor="middle" font-size="12" fill="#111827">pg: 50</text>
+      <text x="533" y="54" text-anchor="middle" font-size="11" fill="#111827">98%</text>
+      <rect x="630" y="57.5" width="170" height="298.5" fill="#1f2937" rx="3"/>
+      <text x="715" y="392" text-anchor="middle" font-size="12" fill="#111827">pg: 200</text>
+      <text x="715" y="49.5" text-anchor="middle" font-size="11" fill="#111827">100%</text>
 </svg>

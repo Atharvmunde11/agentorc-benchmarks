@@ -1,8 +1,8 @@
 {
   "name": "agentorc-benchmarks",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": false,
-  "description": "Public, reproducible benchmarks for the Agent ORC semantic memory SDK",
+  "description": "Public, reproducible dual-backend (SQLite + PostgreSQL) benchmarks for Agent ORC v0.2.1",
   "license": "MIT",
   "type": "module",
   "engines": {
@@ -16,7 +16,7 @@
     "report": "tsx bench/index.ts --report-only"
   },
   "dependencies": {
-    "agentorc": "^0.1.0"
+    "agentorc": "^0.2.1"
   },
   "devDependencies": {
     "@types/node": "^22.15.21",
