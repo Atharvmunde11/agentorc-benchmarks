@@ -2,7 +2,7 @@
   "name": "wolbarg-benchmarks",
   "version": "2.0.0",
   "private": false,
-  "description": "Public, reproducible dual-backend (SQLite + PostgreSQL) benchmarks for Wolbarg v0.2.1",
+  "description": "Public, reproducible dual-backend (SQLite + PostgreSQL) benchmarks for Wolbarg v0.3.0",
   "license": "MIT",
   "type": "module",
   "engines": {
@@ -16,7 +16,7 @@
     "report": "tsx bench/index.ts --report-only"
   },
   "dependencies": {
-    "wolbarg": "^0.2.1"
+    "wolbarg": "^0.3.0"
   },
   "devDependencies": {
     "@types/node": "^22.15.21",
