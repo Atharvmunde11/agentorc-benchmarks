@@ -1,5 +1,5 @@
 import { existsSync } from "node:fs";
-import { AgentOrc } from "agentorc";
+import { Wolbarg } from "wolbarg";
 import type { BenchContext, BenchmarkSection } from "./lib/types.ts";
 import {
   createInitOptions,
@@ -20,7 +20,7 @@ export async function runStartupBenchmark(
     "startup",
     "Startup",
     {
-      what: "How long Agent ORC takes to start.",
+      what: "How long Wolbarg takes to start.",
       why: "Cold starts affect CLI tools and serverless-style runs.",
       how: "Measure init() on a new empty database (cold) and on an existing database (warm).",
     },
@@ -28,7 +28,7 @@ export async function runStartupBenchmark(
       const warmPath = dbPathFor(ctx, "startup-warm");
       ensureCleanDb(warmPath);
       {
-        const seed = new AgentOrc();
+        const seed = new Wolbarg();
         await seed.init(createInitOptions(ctx, warmPath));
         await populateDataset(seed, ctx.scale === "quick" ? 50 : 200, {
           startSeed: 200_000,
@@ -43,14 +43,14 @@ export async function runStartupBenchmark(
       for (let i = 0; i < iterations; i += 1) {
         const coldPath = dbPathFor(ctx, `startup-cold-${i}`);
         ensureCleanDb(coldPath);
-        const cold = new AgentOrc();
+        const cold = new Wolbarg();
         const { ms: coldMs } = await timed(() =>
           cold.init(createInitOptions(ctx, coldPath)),
         );
         coldSamples.push(coldMs);
         await cold.close();
 
-        const warm = new AgentOrc();
+        const warm = new Wolbarg();
         const { ms: warmMs } = await timed(() =>
           warm.init(createInitOptions(ctx, warmPath)),
         );

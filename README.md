@@ -1,14 +1,14 @@
-﻿# Agent ORC Benchmarks
+﻿# Wolbarg Benchmarks
 
-Public, reproducible benchmarks for **[agentorc](https://www.npmjs.com/package/agentorc)** — local-first semantic memory for AI agents.
+Public, reproducible benchmarks for **[wolbarg](https://www.npmjs.com/package/wolbarg)** — local-first semantic memory for AI agents.
 
-- **Website:** [AgentOrc.lucareo.com/benchmarks](https://AgentOrc.lucareo.com/benchmarks)
-- **SDK:** [github.com/Atharvmunde11/agentOrc](https://github.com/Atharvmunde11/agentOrc) · [npm `agentorc`](https://www.npmjs.com/package/agentorc)
-- **Docs:** [AgentOrc.lucareo.com](https://AgentOrc.lucareo.com)
+- **Website:** [wolbarg.com/benchmarks](https://wolbarg.com/benchmarks)
+- **SDK:** [github.com/Atharvmunde11/wolbarg](https://github.com/Atharvmunde11/wolbarg) · [npm `wolbarg`](https://www.npmjs.com/package/wolbarg)
+- **Docs:** [wolbarg.com](https://wolbarg.com)
 
-These benchmarks measure the **complete Agent ORC SDK** (storage + recall path), not raw SQLite or PostgreSQL alone.
+These benchmarks measure the **complete Wolbarg SDK** (storage + recall path), not raw SQLite or PostgreSQL alone.
 
-**Published run:** suite **v2.0.0** · **agentorc@0.2.1** · dual-backend **SQLite + PostgreSQL** · mode `mock` · scale `quick` · generated **2026-07-15**.
+**Published run:** suite **v2.0.0** · **wolbarg@0.3.0** · dual-backend **SQLite + PostgreSQL** · mode `mock` · scale `quick` · generated **2026-07-15**.
 
 ```bash
 npm install
@@ -27,7 +27,7 @@ npm run benchmark
 
 > **Storage suite = mock embeddings.** Numbers above come from the dual-backend mock suite (local OpenAI-compatible mock server). A separate **LIVE** spot suite measures real-provider network latency and is not mixed into these headline figures.
 
-Full charts and commentary: [AgentOrc.lucareo.com/benchmarks](https://AgentOrc.lucareo.com/benchmarks)
+Full charts and commentary: [wolbarg.com/benchmarks](https://wolbarg.com/benchmarks)
 
 ## Environment
 
@@ -37,7 +37,7 @@ Full charts and commentary: [AgentOrc.lucareo.com/benchmarks](https://AgentOrc.l
 | Platform | win32/arm64 |
 | CPUs | 8 |
 | Host RAM | 15.61 GB |
-| SDK | agentorc@0.2.1 |
+| SDK | wolbarg@0.3.0 |
 | Suite | v2.0.0 |
 | Mode | mock |
 | Scale | quick |
@@ -141,7 +141,7 @@ Feature comparison only — **no invented speed numbers**.
 
 **Legend:** ✓ Supported · ◐ Partial · ✗ No · — Unknown
 
-| Feature | Agent ORC | Chroma | Qdrant | LanceDB | Mem0 |
+| Feature | Wolbarg | Chroma | Qdrant | LanceDB | Mem0 |
 | --- | --- | --- | --- | --- | --- |
 | SQLite-based | ✓ | ◐ | ✗ | ✗ | ◐ |
 | Local-first | ✓ | ✓ | ◐ | ✓ | ◐ |
@@ -158,13 +158,13 @@ Feature comparison only — **no invented speed numbers**.
 
 Based on public documentation only. See [`comparison/features.ts`](comparison/features.ts) for notes.
 
-Website: [AgentOrc.lucareo.com/benchmarks](https://AgentOrc.lucareo.com/benchmarks) · npm: [`agentorc`](https://www.npmjs.com/package/agentorc)
+Website: [wolbarg.com/benchmarks](https://wolbarg.com/benchmarks) · npm: [`wolbarg`](https://www.npmjs.com/package/wolbarg)
 
 ## How to reproduce
 
 ```bash
-git clone https://github.com/Atharvmunde11/agentorc-benchmarks.git
-cd agentorc-benchmarks
+git clone https://github.com/Atharvmunde11/wolbarg-benchmarks.git
+cd wolbarg-benchmarks
 npm install
 npm run benchmark        # full suite
 npm run charts           # regenerate charts from results/benchmark.json

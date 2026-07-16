@@ -123,14 +123,14 @@ export function installMockFetch(dimensions = DEFAULT_DIMS): MockBackend {
           ? input.toString()
           : input.url;
 
-    if (url.includes("mock.agentorc.local")) {
+    if (url.includes("mock.wolbarg.local")) {
       return handleOpenAICompatible(url, init, dimensions);
     }
     return originalFetch(input, init);
   }) as typeof fetch;
 
   return {
-    baseUrl: "https://mock.agentorc.local/v1",
+    baseUrl: "https://mock.wolbarg.local/v1",
     dimensions,
     close: async () => {
       globalThis.fetch = originalFetch;

@@ -3,7 +3,7 @@
  */
 
 import { existsSync } from "node:fs";
-import type { AgentOrc } from "agentorc";
+import type { Wolbarg } from "wolbarg";
 import type { BenchContext } from "./types.ts";
 import {
   createClient,
@@ -47,7 +47,7 @@ export async function ensureDataset(
 export async function openDataset(
   ctx: BenchContext,
   size: number,
-): Promise<{ client: AgentOrc; path: string }> {
+): Promise<{ client: Wolbarg; path: string }> {
   const path = await ensureDataset(ctx, size);
   const client = await createClient(ctx, path);
   return { client, path };

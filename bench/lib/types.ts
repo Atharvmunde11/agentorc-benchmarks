@@ -1,4 +1,4 @@
-/** Shared types for the Agent ORC benchmark suite. */
+/** Shared types for the Wolbarg benchmark suite. */
 
 export type StorageAdapterName = "sqlite" | "postgres";
 export type BenchMode = "mock" | "live";

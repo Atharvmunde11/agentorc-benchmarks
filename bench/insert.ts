@@ -19,7 +19,7 @@ export async function runInsertBenchmark(
     "insert",
     "Insert",
     {
-      what: "How fast Agent ORC can store new memories.",
+      what: "How fast Wolbarg can store new memories.",
       why: "Agents write continuously. Slow writes block the whole system.",
       how: "Insert N realistic memories one by one through remember(). Report total time, ops/sec, and average latency.",
     },

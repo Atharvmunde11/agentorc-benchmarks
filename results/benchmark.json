@@ -8,7 +8,7 @@
     "postgres"
   ],
   "methodology": {
-    "mockReason": "Primary stress and push-to-failure concurrency use a local mock OpenAI-compatible embedding/LLM server. Live OpenAI was not used for failure ramps because API rate limits and quota errors would dominate long before SQLite or PostgreSQL contention, masking true AgentOrc/storage breaking points. A separate LIVE spot suite reports real-network latency for representative insert/search/ingest/compress paths.",
+    "mockReason": "Primary stress and push-to-failure concurrency use a local mock OpenAI-compatible embedding/LLM server. Live OpenAI was not used for failure ramps because API rate limits and quota errors would dominate long before SQLite or PostgreSQL contention, masking true Wolbarg/storage breaking points. A separate LIVE spot suite reports real-network latency for representative insert/search/ingest/compress paths.",
     "failureCriteria": "A concurrency level fails when errorRate > 1% OR p95 latency > 5s OR a hard integrity/exception failure occurs. Reports record lastHealthyLevel and breakingLevel."
   },
   "runtime": {
@@ -19,7 +19,7 @@
     "totalMemBytes": 16758542336
   },
   "sdk": {
-    "package": "agentorc@0.2.0",
+    "package": "wolbarg@0.2.0",
     "organization": "demo-org",
     "embeddingMode": "local-mock-openai-compatible",
     "embeddingModel": "mock-embed",
@@ -30,7 +30,7 @@
     {
       "id": "sqlite-startup",
       "title": "sqlite · Startup Benchmark",
-      "description": "Measures cold vs warm AgentOrc.ready() time (storage open, schema, embedding/LLM health probes).",
+      "description": "Measures cold vs warm Wolbarg.ready() time (storage open, schema, embedding/LLM health probes).",
       "rows": [
         {
           "category": "startup",
@@ -69,7 +69,7 @@
               8.08159999999998,
               8.25590000000011
             ],
-            "definition": "New AgentOrc + ready() against a freshly cleaned storage namespace each iteration"
+            "definition": "New Wolbarg + ready() against a freshly cleaned storage namespace each iteration"
           }
         },
         {
@@ -124,7 +124,7 @@
     {
       "id": "sqlite-compression",
       "title": "sqlite · Compression Benchmark",
-      "description": "Measures AgentOrc.compress() duration, active-set reduction, and storage delta.",
+      "description": "Measures Wolbarg.compress() duration, active-set reduction, and storage delta.",
       "rows": [
         {
           "category": "compression",
@@ -805,7 +805,7 @@
     {
       "id": "sqlite-concurrency",
       "title": "sqlite · Concurrency Baseline",
-      "description": "Fixed N concurrent AgentOrc.remember() writers on one client (AsyncMutex queueing).",
+      "description": "Fixed N concurrent Wolbarg.remember() writers on one client (AsyncMutex queueing).",
       "rows": [
         {
           "category": "concurrency",
@@ -860,7 +860,7 @@
             }
           ],
           "details": {
-            "note": "Single AgentOrc instance; writes serialize via AsyncMutex."
+            "note": "Single Wolbarg instance; writes serialize via AsyncMutex."
           }
         },
         {
@@ -916,7 +916,7 @@
             }
           ],
           "details": {
-            "note": "Single AgentOrc instance; writes serialize via AsyncMutex."
+            "note": "Single Wolbarg instance; writes serialize via AsyncMutex."
           }
         },
         {
@@ -972,7 +972,7 @@
             }
           ],
           "details": {
-            "note": "Single AgentOrc instance; writes serialize via AsyncMutex."
+            "note": "Single Wolbarg instance; writes serialize via AsyncMutex."
           }
         },
         {
@@ -1028,7 +1028,7 @@
             }
           ],
           "details": {
-            "note": "Single AgentOrc instance; writes serialize via AsyncMutex."
+            "note": "Single Wolbarg instance; writes serialize via AsyncMutex."
           }
         }
       ],
@@ -1316,7 +1316,7 @@
     {
       "id": "sqlite-search",
       "title": "sqlite · Search Benchmark",
-      "description": "Populates shared corpus, then benchmarks AgentOrc.recall() (avg / p95 / p99).",
+      "description": "Populates shared corpus, then benchmarks Wolbarg.recall() (avg / p95 / p99).",
       "rows": [
         {
           "category": "search",
@@ -1584,7 +1584,7 @@
     {
       "id": "sqlite-insert",
       "title": "sqlite · Insert Benchmark",
-      "description": "Measures AgentOrc.remember() throughput and latency (embed → persist → index).",
+      "description": "Measures Wolbarg.remember() throughput and latency (embed → persist → index).",
       "rows": [
         {
           "category": "insert",
@@ -1681,7 +1681,7 @@
               "heapUsed": 34597424,
               "rss": 116240384
             },
-            "note": "embed vs store split from AGENTORC_PROFILE samples (n≤20)"
+            "note": "embed vs store split from WOLBARG_PROFILE samples (n≤20)"
           }
         },
         {
@@ -1779,7 +1779,7 @@
               "heapUsed": 20899240,
               "rss": 117895168
             },
-            "note": "embed vs store split from AGENTORC_PROFILE samples (n≤20)"
+            "note": "embed vs store split from WOLBARG_PROFILE samples (n≤20)"
           }
         }
       ],
@@ -2125,7 +2125,7 @@
                   "organization": "demo-org-sqlite-ingest-inline-markdown",
                   "agent": "ingest-bot",
                   "content": {
-                    "text": "# Spec\n\nAgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embedd"
+                    "text": "# Spec\n\nWolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embedd"
                   },
                   "metadata": {
                     "ingest": true,
@@ -2143,7 +2143,7 @@
                   "organization": "demo-org-sqlite-ingest-inline-markdown",
                   "agent": "ingest-bot",
                   "content": {
-                    "text": "ries with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memori"
+                    "text": "ries with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memori"
                   },
                   "metadata": {
                     "ingest": true,
@@ -2161,7 +2161,7 @@
                   "organization": "demo-org-sqlite-ingest-inline-markdown",
                   "agent": "ingest-bot",
                   "content": {
-                    "text": "rc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings."
+                    "text": "rc stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings."
                   },
                   "metadata": {
                     "ingest": true,
@@ -2410,7 +2410,7 @@
                   "organization": "demo-org-sqlite-ingest-sample-txt",
                   "agent": "ingest-bot",
                   "content": {
-                    "text": "AgentOrc fixture text file. The quick brown fox jumps over the lazy dog. This paragraph exists so sentence chunking has more than one sentence to split. Inventory sync runs every hour at the main warehouse."
+                    "text": "Wolbarg fixture text file. The quick brown fox jumps over the lazy dog. This paragraph exists so sentence chunking has more than one sentence to split. Inventory sync runs every hour at the main warehouse."
                   },
                   "metadata": {
                     "ingest": true,
@@ -2528,7 +2528,7 @@
                   "organization": "demo-org-sqlite-ingest-sample-docx",
                   "agent": "ingest-bot",
                   "content": {
-                    "text": "AgentOrc sample DOCX. Widgets pricing and refunds policy for Acme Corp. Customers may request refunds within 30 days of purchase for unused widgets."
+                    "text": "Wolbarg sample DOCX. Widgets pricing and refunds policy for Acme Corp. Customers may request refunds within 30 days of purchase for unused widgets."
                   },
                   "metadata": {
                     "ingest": true,
@@ -2585,7 +2585,7 @@
                   "organization": "demo-org-sqlite-chunking-fixed",
                   "agent": "chunk-bot",
                   "content": {
-                    "text": "# AgentOrc Chunking Bench\n\n## Overview\n\nAgentOrc stores agent memories with embeddings and optional keyword indexes.\n\n## Details\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logis"
+                    "text": "# Wolbarg Chunking Bench\n\n## Overview\n\nWolbarg stores agent memories with embeddings and optional keyword indexes.\n\n## Details\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logis"
                   },
                   "metadata": {
                     "ingest": true,
@@ -2705,7 +2705,7 @@
                   "organization": "demo-org-sqlite-chunking-sentence",
                   "agent": "chunk-bot",
                   "content": {
-                    "text": "# AgentOrc Chunking Bench\n\n## Overview\n\nAgentOrc stores agent memories with embeddings and optional keyword indexes. ## Details\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, i"
+                    "text": "# Wolbarg Chunking Bench\n\n## Overview\n\nWolbarg stores agent memories with embeddings and optional keyword indexes. ## Details\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, i"
                   },
                   "metadata": {
                     "ingest": true,
@@ -2825,7 +2825,7 @@
                   "organization": "demo-org-sqlite-chunking-markdown",
                   "agent": "chunk-bot",
                   "content": {
-                    "text": "# AgentOrc Chunking Bench\n\n## Overview\n\nAgentOrc stores agent memories with embeddings and optional keyword indexes.\n\n## Details\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logis"
+                    "text": "# Wolbarg Chunking Bench\n\n## Overview\n\nWolbarg stores agent memories with embeddings and optional keyword indexes.\n\n## Details\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logis"
                   },
                   "metadata": {
                     "ingest": true,
@@ -3015,7 +3015,7 @@
     {
       "id": "postgres-startup",
       "title": "postgres · Startup Benchmark",
-      "description": "Measures cold vs warm AgentOrc.ready() time (storage open, schema, embedding/LLM health probes).",
+      "description": "Measures cold vs warm Wolbarg.ready() time (storage open, schema, embedding/LLM health probes).",
       "rows": [
         {
           "category": "startup",
@@ -3054,7 +3054,7 @@
               50.59809999999925,
               57.730100000000675
             ],
-            "definition": "New AgentOrc + ready() against a freshly cleaned storage namespace each iteration"
+            "definition": "New Wolbarg + ready() against a freshly cleaned storage namespace each iteration"
           }
         },
         {
@@ -3109,7 +3109,7 @@
     {
       "id": "postgres-compression",
       "title": "postgres · Compression Benchmark",
-      "description": "Measures AgentOrc.compress() duration, active-set reduction, and storage delta.",
+      "description": "Measures Wolbarg.compress() duration, active-set reduction, and storage delta.",
       "rows": [
         {
           "category": "compression",
@@ -3790,7 +3790,7 @@
     {
       "id": "postgres-concurrency",
       "title": "postgres · Concurrency Baseline",
-      "description": "Fixed N concurrent AgentOrc.remember() writers on one client (AsyncMutex queueing).",
+      "description": "Fixed N concurrent Wolbarg.remember() writers on one client (AsyncMutex queueing).",
       "rows": [
         {
           "category": "concurrency",
@@ -3845,7 +3845,7 @@
             }
           ],
           "details": {
-            "note": "Single AgentOrc instance; writes serialize via AsyncMutex."
+            "note": "Single Wolbarg instance; writes serialize via AsyncMutex."
           }
         },
         {
@@ -3901,7 +3901,7 @@
             }
           ],
           "details": {
-            "note": "Single AgentOrc instance; writes serialize via AsyncMutex."
+            "note": "Single Wolbarg instance; writes serialize via AsyncMutex."
           }
         },
         {
@@ -3957,7 +3957,7 @@
             }
           ],
           "details": {
-            "note": "Single AgentOrc instance; writes serialize via AsyncMutex."
+            "note": "Single Wolbarg instance; writes serialize via AsyncMutex."
           }
         },
         {
@@ -4013,7 +4013,7 @@
             }
           ],
           "details": {
-            "note": "Single AgentOrc instance; writes serialize via AsyncMutex."
+            "note": "Single Wolbarg instance; writes serialize via AsyncMutex."
           }
         }
       ],
@@ -4301,7 +4301,7 @@
     {
       "id": "postgres-search",
       "title": "postgres · Search Benchmark",
-      "description": "Populates shared corpus, then benchmarks AgentOrc.recall() (avg / p95 / p99).",
+      "description": "Populates shared corpus, then benchmarks Wolbarg.recall() (avg / p95 / p99).",
       "rows": [
         {
           "category": "search",
@@ -4569,7 +4569,7 @@
     {
       "id": "postgres-insert",
       "title": "postgres · Insert Benchmark",
-      "description": "Measures AgentOrc.remember() throughput and latency (embed → persist → index).",
+      "description": "Measures Wolbarg.remember() throughput and latency (embed → persist → index).",
       "rows": [
         {
           "category": "insert",
@@ -4672,7 +4672,7 @@
                 "waiting": 0
               }
             },
-            "note": "embed vs store split from AGENTORC_PROFILE samples (n≤20)"
+            "note": "embed vs store split from WOLBARG_PROFILE samples (n≤20)"
           }
         },
         {
@@ -4776,7 +4776,7 @@
                 "waiting": 0
               }
             },
-            "note": "embed vs store split from AGENTORC_PROFILE samples (n≤20)"
+            "note": "embed vs store split from WOLBARG_PROFILE samples (n≤20)"
           }
         }
       ],
@@ -5122,7 +5122,7 @@
                   "organization": "demo-org-postgres-ingest-inline-markdown",
                   "agent": "ingest-bot",
                   "content": {
-                    "text": "# Spec\n\nAgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embedd"
+                    "text": "# Spec\n\nWolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embedd"
                   },
                   "metadata": {
                     "ingest": true,
@@ -5140,7 +5140,7 @@
                   "organization": "demo-org-postgres-ingest-inline-markdown",
                   "agent": "ingest-bot",
                   "content": {
-                    "text": "ries with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memori"
+                    "text": "ries with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memori"
                   },
                   "metadata": {
                     "ingest": true,
@@ -5158,7 +5158,7 @@
                   "organization": "demo-org-postgres-ingest-inline-markdown",
                   "agent": "ingest-bot",
                   "content": {
-                    "text": "rc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings. AgentOrc stores memories with embeddings."
+                    "text": "rc stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings. Wolbarg stores memories with embeddings."
                   },
                   "metadata": {
                     "ingest": true,
@@ -5407,7 +5407,7 @@
                   "organization": "demo-org-postgres-ingest-sample-txt",
                   "agent": "ingest-bot",
                   "content": {
-                    "text": "AgentOrc fixture text file. The quick brown fox jumps over the lazy dog. This paragraph exists so sentence chunking has more than one sentence to split. Inventory sync runs every hour at the main warehouse."
+                    "text": "Wolbarg fixture text file. The quick brown fox jumps over the lazy dog. This paragraph exists so sentence chunking has more than one sentence to split. Inventory sync runs every hour at the main warehouse."
                   },
                   "metadata": {
                     "ingest": true,
@@ -5525,7 +5525,7 @@
                   "organization": "demo-org-postgres-ingest-sample-docx",
                   "agent": "ingest-bot",
                   "content": {
-                    "text": "AgentOrc sample DOCX. Widgets pricing and refunds policy for Acme Corp. Customers may request refunds within 30 days of purchase for unused widgets."
+                    "text": "Wolbarg sample DOCX. Widgets pricing and refunds policy for Acme Corp. Customers may request refunds within 30 days of purchase for unused widgets."
                   },
                   "metadata": {
                     "ingest": true,
@@ -5582,7 +5582,7 @@
                   "organization": "demo-org-postgres-chunking-fixed",
                   "agent": "chunk-bot",
                   "content": {
-                    "text": "# AgentOrc Chunking Bench\n\n## Overview\n\nAgentOrc stores agent memories with embeddings and optional keyword indexes.\n\n## Details\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logis"
+                    "text": "# Wolbarg Chunking Bench\n\n## Overview\n\nWolbarg stores agent memories with embeddings and optional keyword indexes.\n\n## Details\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logis"
                   },
                   "metadata": {
                     "ingest": true,
@@ -5702,7 +5702,7 @@
                   "organization": "demo-org-postgres-chunking-sentence",
                   "agent": "chunk-bot",
                   "content": {
-                    "text": "# AgentOrc Chunking Bench\n\n## Overview\n\nAgentOrc stores agent memories with embeddings and optional keyword indexes. ## Details\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, i"
+                    "text": "# Wolbarg Chunking Bench\n\n## Overview\n\nWolbarg stores agent memories with embeddings and optional keyword indexes. ## Details\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality. This paragraph discusses warehouse logistics, i"
                   },
                   "metadata": {
                     "ingest": true,
@@ -5822,7 +5822,7 @@
                   "organization": "demo-org-postgres-chunking-markdown",
                   "agent": "chunk-bot",
                   "content": {
-                    "text": "# AgentOrc Chunking Bench\n\n## Overview\n\nAgentOrc stores agent memories with embeddings and optional keyword indexes.\n\n## Details\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logis"
+                    "text": "# Wolbarg Chunking Bench\n\n## Overview\n\nWolbarg stores agent memories with embeddings and optional keyword indexes.\n\n## Details\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logistics, invoices, and engineering notes for agent recall quality.\n\nThis paragraph discusses warehouse logis"
                   },
                   "metadata": {
                     "ingest": true,

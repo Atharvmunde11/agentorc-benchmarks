@@ -1,4 +1,4 @@
-# Contributing to Agent ORC Benchmarks
+# Contributing to Wolbarg Benchmarks
 
 Thanks for helping keep the public numbers trustworthy.
 

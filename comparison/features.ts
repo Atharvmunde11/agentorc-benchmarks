@@ -52,7 +52,7 @@ export interface ProductFeatures {
 
 /**
  * Sources consulted (public docs / repos only):
- * - Agent ORC: SDK README + source (Atharvmunde11/agentOrc)
+ * - Wolbarg: SDK README + source (Atharvmunde11/wolbarg)
  * - Chroma: cookbook.chromadb.dev storage + concepts; trychroma.com
  * - Qdrant: qdrant.tech docs (hybrid queries, edge, open source)
  * - LanceDB: docs.lancedb.com (search / hybrid search)
@@ -60,8 +60,8 @@ export interface ProductFeatures {
  */
 export const PRODUCTS: ProductFeatures[] = [
   {
-    name: "Agent ORC",
-    homepage: "https://AgentOrc.lucareo.com",
+    name: "Wolbarg",
+    homepage: "https://wolbarg.com",
     features: {
       "SQLite-based": "Yes",
       "Local-first": "Yes",

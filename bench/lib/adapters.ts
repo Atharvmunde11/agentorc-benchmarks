@@ -19,7 +19,7 @@ export function resolveAdapter(
 export function assertAdapterSupported(adapter: StorageAdapterName): void {
   if (adapter === "postgres") {
     throw new Error(
-      "PostgreSQL adapter is not available yet. Agent ORC v1 ships SQLite only. Set DATABASE_ADAPTER=sqlite.",
+      "PostgreSQL adapter is not available yet. Wolbarg v1 ships SQLite only. Set DATABASE_ADAPTER=sqlite.",
     );
   }
 }

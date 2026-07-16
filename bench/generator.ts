@@ -19,7 +19,7 @@ const PEOPLE = [
 ];
 
 const PROJECTS = [
-  "Agent ORC",
+  "Wolbarg",
   "Phoenix Checkout",
   "Nebula Analytics",
   "Atlas Migrator",

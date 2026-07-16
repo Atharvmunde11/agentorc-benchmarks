@@ -1,12 +1,12 @@
 /**
- * Agent ORC public benchmark runner.
+ * Wolbarg public benchmark runner.
  *
  * npm run benchmark
  * npm run benchmark:quick
  * npm run benchmark:live
  */
 
-import { AgentOrc } from "agentorc";
+import { Wolbarg } from "wolbarg";
 import type { BenchmarkFn, BenchmarkSection } from "./lib/types.ts";
 import {
   buildContext,
@@ -42,7 +42,7 @@ const BENCHMARKS: Array<{ id: string; run: BenchmarkFn }> = [
 async function probeSdkMeta(ctx: Awaited<ReturnType<typeof buildContext>>["ctx"]) {
   const path = dbPathFor(ctx, "probe-meta");
   ensureCleanDb(path);
-  const client = new AgentOrc();
+  const client = new Wolbarg();
   await client.init(createInitOptions(ctx, path));
   const stats = await client.stats();
   await client.close();
@@ -103,7 +103,7 @@ async function main(): Promise<void> {
   }
 
   console.log("══════════════════════════════════════════════");
-  console.log(" Agent ORC Benchmarks");
+  console.log(" Wolbarg Benchmarks");
   console.log("══════════════════════════════════════════════");
   console.log(` mode=${mode}  scale=${scale}`);
 

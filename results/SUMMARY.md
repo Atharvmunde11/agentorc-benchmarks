@@ -1,4 +1,4 @@
-# AgentOrc Benchmarks Summary (v0.2.1)
+# Wolbarg Benchmarks Summary (v0.2.1)
 
 Generated **2026-07-15T13:59:16.872Z** · suite v2.0.0 · mode `mock` · scale `quick` · backends `sqlite, postgres`
 

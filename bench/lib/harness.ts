@@ -1,13 +1,13 @@
 /**
- * Shared harness for Agent ORC benchmarks.
+ * Shared harness for Wolbarg benchmarks.
  */
 
 import { mkdirSync, rmSync, existsSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { cpus, totalmem } from "node:os";
-import { AgentOrc } from "agentorc";
-import type { InitOptions } from "agentorc";
+import { Wolbarg } from "wolbarg";
+import type { InitOptions } from "wolbarg";
 import { config as loadDotenv } from "dotenv";
 import type {
   BenchContext,
@@ -108,14 +108,14 @@ export function createInitOptions(
 export async function createClient(
   ctx: BenchContext,
   connectionString: string,
-): Promise<AgentOrc> {
-  const client = new AgentOrc();
+): Promise<Wolbarg> {
+  const client = new Wolbarg();
   await client.init(createInitOptions(ctx, connectionString));
   return client;
 }
 
 export async function populateDataset(
-  client: AgentOrc,
+  client: Wolbarg,
   count: number,
   options?: { startSeed?: number; agentOverride?: string },
 ): Promise<GeneratedMemory[]> {

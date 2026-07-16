@@ -34,7 +34,7 @@ export function buildReport(
     adapter: ctx.adapter,
     runtime: runtimeInfo(),
     sdk: {
-      package: "agentorc",
+      package: "wolbarg",
       organization: ctx.organization,
       embeddingMode:
         ctx.mode === "mock" ? "local-mock-openai-compatible" : "live-api",
@@ -74,7 +74,7 @@ function mdTable(headers: string[], rows: string[][]): string {
 /** Detailed report — samples, metrics, paths OK here. */
 export function renderDetailedMarkdown(report: BenchmarkSuiteReport): string {
   const lines: string[] = [];
-  lines.push("# Agent ORC Benchmark Report");
+  lines.push("# Wolbarg Benchmark Report");
   lines.push("");
   lines.push(
     `Generated **${report.generatedAt}** · suite v${report.suiteVersion} · mode \`${report.mode}\` · scale \`${report.scale}\` · adapter \`${report.adapter}\``,
@@ -190,11 +190,11 @@ export function renderReadme(report: BenchmarkSuiteReport): string {
     )
     .join("\n");
 
-  return `# Agent ORC Benchmarks
+  return `# Wolbarg Benchmarks
 
-Public, reproducible benchmarks for [Agent ORC](https://AgentOrc.lucareo.com) — local-first semantic memory for AI agents.
+Public, reproducible benchmarks for [Wolbarg](https://wolbarg.com) — local-first semantic memory for AI agents.
 
-These benchmarks measure the **complete Agent ORC SDK**, not raw SQLite.
+These benchmarks measure the **complete Wolbarg SDK**, not raw SQLite.
 
 \`\`\`bash
 npm install
@@ -261,13 +261,13 @@ ${renderFeatureMarkdownTable()}
 
 Based on public documentation only. See [\`comparison/features.ts\`](comparison/features.ts) for notes.
 
-Website: [AgentOrc.lucareo.com/benchmarks](https://AgentOrc.lucareo.com/benchmarks) · npm: [\`agentorc\`](https://www.npmjs.com/package/agentorc)
+Website: [wolbarg.com/benchmarks](https://wolbarg.com/benchmarks) · npm: [\`wolbarg\`](https://www.npmjs.com/package/wolbarg)
 
 ## How to reproduce
 
 \`\`\`bash
-git clone https://github.com/Atharvmunde11/agentorc-benchmarks.git
-cd agentorc-benchmarks
+git clone https://github.com/Atharvmunde11/wolbarg-benchmarks.git
+cd wolbarg-benchmarks
 npm install
 npm run benchmark        # full suite
 npm run charts           # regenerate charts from results/benchmark.json

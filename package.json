@@ -1,8 +1,8 @@
 {
-  "name": "agentorc-benchmarks",
+  "name": "wolbarg-benchmarks",
   "version": "2.0.0",
   "private": false,
-  "description": "Public, reproducible dual-backend (SQLite + PostgreSQL) benchmarks for Agent ORC v0.2.1",
+  "description": "Public, reproducible dual-backend (SQLite + PostgreSQL) benchmarks for Wolbarg v0.2.1",
   "license": "MIT",
   "type": "module",
   "engines": {
@@ -16,7 +16,7 @@
     "report": "tsx bench/index.ts --report-only"
   },
   "dependencies": {
-    "agentorc": "^0.2.1"
+    "wolbarg": "^0.2.1"
   },
   "devDependencies": {
     "@types/node": "^22.15.21",
@@ -28,10 +28,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Atharvmunde11/agentorc-benchmarks.git"
+    "url": "git+https://github.com/Atharvmunde11/wolbarg-benchmarks.git"
   },
   "bugs": {
-    "url": "https://github.com/Atharvmunde11/agentorc-benchmarks/issues"
+    "url": "https://github.com/Atharvmunde11/wolbarg-benchmarks/issues"
   },
-  "homepage": "https://AgentOrc.lucareo.com/benchmarks"
+  "homepage": "https://wolbarg.com/benchmarks"
 }
