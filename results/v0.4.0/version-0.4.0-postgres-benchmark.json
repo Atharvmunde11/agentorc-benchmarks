@@ -1,0 +1,273 @@
+{
+  "version": "0.4.0",
+  "schemaTarget": 4,
+  "suite": "v4-stress",
+  "backend": "postgres",
+  "mode": "mock",
+  "generatedAt": "2026-07-18T17:33:10.853Z",
+  "runtime": {
+    "node": "v24.13.1",
+    "platform": "win32",
+    "arch": "arm64",
+    "cpus": 8
+  },
+  "wallMs": 5795.9,
+  "summary": {
+    "passed": 21,
+    "failed": 0,
+    "skipped": 4,
+    "total": 25
+  },
+  "headline": {
+    "coldReadyMs": 91.39,
+    "batchOpsPerSec": 2795,
+    "cacheSpeedup": 1.18,
+    "bulk2kInsertOpsSec": 4084.7,
+    "recallP95Ms": 141.5,
+    "conc16Throughput": 3334.8,
+    "conc16P95Ms": 9.48
+  },
+  "sections": [
+    {
+      "id": "startup",
+      "title": "Startup & schema",
+      "cases": [
+        {
+          "name": "cold ready()",
+          "status": "pass",
+          "ms": 91.90170000000006,
+          "metrics": {
+            "coldReadyMs": 91.39
+          }
+        },
+        {
+          "name": "warm ready() reopen",
+          "status": "pass",
+          "ms": 149.72299999999996,
+          "metrics": {
+            "warmReadyMs": 59.89
+          }
+        },
+        {
+          "name": "schema_version is 4",
+          "status": "skip",
+          "ms": 0,
+          "detail": "SQLite-only meta check"
+        }
+      ]
+    },
+    {
+      "id": "features",
+      "title": "v0.4 feature coverage",
+      "cases": [
+        {
+          "name": "rememberBatch append throughput",
+          "status": "pass",
+          "ms": 146.73220000000003,
+          "metrics": {
+            "count": 200,
+            "ms": 71.56,
+            "opsPerSec": 2795
+          }
+        },
+        {
+          "name": "embedding cache hit rate (repeated texts)",
+          "status": "pass",
+          "ms": 247.53290000000004,
+          "metrics": {
+            "coldAvgMs": 0.77,
+            "hotAvgMs": 0.66,
+            "speedup": 1.18
+          }
+        },
+        {
+          "name": "exact dedupe upsert + metadata merge",
+          "status": "pass",
+          "ms": 81.15110000000004,
+          "metrics": {
+            "action": "updated",
+            "active": 1
+          }
+        },
+        {
+          "name": "dedupe off creates duplicates",
+          "status": "pass",
+          "ms": 67.6083000000001,
+          "metrics": {
+            "distinct": true
+          }
+        },
+        {
+          "name": "subscribe delivers remember/update/forget",
+          "status": "pass",
+          "ms": 308.61810000000014,
+          "metrics": {
+            "events": "remember,update,remember,forget"
+          }
+        },
+        {
+          "name": "throwing subscriber does not break writes",
+          "status": "pass",
+          "ms": 113.4824000000001,
+          "metrics": {
+            "ok": true
+          }
+        },
+        {
+          "name": "telemetry records operations",
+          "status": "skip",
+          "ms": 0,
+          "detail": "SQLite-only EventDatabase"
+        },
+        {
+          "name": "checkpoint create / no-overwrite / rollback",
+          "status": "skip",
+          "ms": 0,
+          "detail": "SQLite file snapshots"
+        },
+        {
+          "name": "export / import round-trip",
+          "status": "skip",
+          "ms": 0,
+          "detail": "SQLite file transfer"
+        }
+      ]
+    },
+    {
+      "id": "edge",
+      "title": "Edge cases",
+      "cases": [
+        {
+          "name": "clear requires confirm",
+          "status": "pass",
+          "ms": 96.30639999999994,
+          "metrics": {
+            "ok": true
+          }
+        },
+        {
+          "name": "empty corpus recall returns []",
+          "status": "pass",
+          "ms": 125.29399999999987,
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "name": "org / agent isolation",
+          "status": "pass",
+          "ms": 146.1373000000001,
+          "metrics": {
+            "ok": true
+          }
+        },
+        {
+          "name": "unicode + large metadata",
+          "status": "pass",
+          "ms": 72.82729999999992,
+          "metrics": {
+            "hits": 1
+          }
+        },
+        {
+          "name": "metadata filter eq + and/or",
+          "status": "pass",
+          "ms": 80.00839999999971,
+          "metrics": {
+            "eq": 2,
+            "and": 1
+          }
+        },
+        {
+          "name": "hybrid recall + compress strips ANN",
+          "status": "pass",
+          "ms": 84.58140000000003,
+          "metrics": {
+            "hybridHits": 2,
+            "archived": 2,
+            "summaryAlive": true
+          }
+        },
+        {
+          "name": "forget-by-agent + clear integrity",
+          "status": "pass",
+          "ms": 125.95689999999968,
+          "metrics": {
+            "afterAgentForget": 15,
+            "afterClear": 0
+          }
+        },
+        {
+          "name": "concurrent exact-dedupe race stays unique",
+          "status": "pass",
+          "ms": 195.88510000000042,
+          "metrics": {
+            "ids": 1,
+            "updates": 11
+          }
+        }
+      ]
+    },
+    {
+      "id": "stress",
+      "title": "Stress & concurrency",
+      "cases": [
+        {
+          "name": "bulk insert 2k + search latency",
+          "status": "pass",
+          "ms": 1813.3612000000003,
+          "metrics": {
+            "inserted": 2000,
+            "insertMs": 489.6,
+            "insertOpsSec": 4084.7,
+            "recallP50Ms": 23.29,
+            "recallP95Ms": 141.5,
+            "active": 2000
+          }
+        },
+        {
+          "name": "concurrency 8 writers × 20 ops",
+          "status": "pass",
+          "ms": 189.4367000000002,
+          "metrics": {
+            "writers": 8,
+            "throughput": 2555.4,
+            "p95Ms": 8.51,
+            "failures": 0
+          }
+        },
+        {
+          "name": "concurrency 16 writers × 20 ops",
+          "status": "pass",
+          "ms": 196.95300000000043,
+          "metrics": {
+            "writers": 16,
+            "throughput": 3334.8,
+            "p95Ms": 9.48,
+            "failures": 0
+          }
+        },
+        {
+          "name": "concurrency 32 writers × 20 ops",
+          "status": "pass",
+          "ms": 275.21070000000054,
+          "metrics": {
+            "writers": 32,
+            "throughput": 3801.5,
+            "p95Ms": 14.77,
+            "failures": 0
+          }
+        },
+        {
+          "name": "mixed read/write storm",
+          "status": "pass",
+          "ms": 1184.9970000000003,
+          "metrics": {
+            "wallMs": 387,
+            "failures": 0
+          }
+        }
+      ]
+    }
+  ]
+}

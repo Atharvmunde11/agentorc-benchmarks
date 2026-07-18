@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-07-18T10:53:47.965Z",
+  "workload": "100 chunks, 20 unique, 2 passes (mock embedding provider)",
+  "uncachedCalls": 100,
+  "cachedCalls": 20,
+  "uncachedMs": 1372,
+  "cachedMs": 312,
+  "callReductionPercent": 90,
+  "cacheHits": 180,
+  "cacheMisses": 20,
+  "note": "Measured with benchmark/embedding-cache-bench.ts — 90% provider-call reduction on repeated-ingest style workload"
+}

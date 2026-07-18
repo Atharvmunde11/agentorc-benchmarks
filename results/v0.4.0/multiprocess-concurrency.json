@@ -1,0 +1,51 @@
+{
+  "generatedAt": "2026-07-18T10:55:26.857Z",
+  "writesPerWorker": 25,
+  "note": "BEGIN IMMEDIATE + busy_timeout + app-level retry (v0.4)",
+  "levels": [
+    {
+      "level": 2,
+      "throughput": 123.07716544426427,
+      "p50": 0.7692000000000121,
+      "p95": 3.1655000000000086,
+      "p99": 9.660900000000026,
+      "errorRate": 0,
+      "integrityOk": true,
+      "wallMs": 406.2492,
+      "totalOps": 50
+    },
+    {
+      "level": 5,
+      "throughput": 221.20839954838098,
+      "p50": 0.7801000000000045,
+      "p95": 6.088999999999999,
+      "p99": 43.94459999999998,
+      "errorRate": 0,
+      "integrityOk": true,
+      "wallMs": 565.0779999999999,
+      "totalOps": 125
+    },
+    {
+      "level": 10,
+      "throughput": 246.29246106658027,
+      "p50": 0.8146999999999025,
+      "p95": 15.480000000000018,
+      "p99": 52.65689999999995,
+      "errorRate": 0,
+      "integrityOk": true,
+      "wallMs": 1015.0534000000002,
+      "totalOps": 250
+    },
+    {
+      "level": 20,
+      "throughput": 245.22087804670386,
+      "p50": 0.7911000000000286,
+      "p95": 77.7663,
+      "p99": 319.7437,
+      "errorRate": 0,
+      "integrityOk": true,
+      "wallMs": 2038.9781000000003,
+      "totalOps": 500
+    }
+  ]
+}
